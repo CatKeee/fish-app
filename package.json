@@ -1,0 +1,43 @@
+{
+  "name": "fish-app",
+  "version": "1.0.0",
+  "description": "an interesting app",
+  "main": "app.ts",
+  "scripts": {
+    "dev": "nodemon app.ts",
+    "start": "node app.ts",
+    "build": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CatKeee/fish-app.git"
+  },
+  "keywords": [
+    "koa",
+    "nodejs",
+    "vue",
+    "typescript"
+  ],
+  "author": "JXDN",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CatKeee/fish-app/issues"
+  },
+  "homepage": "https://github.com/CatKeee/fish-app#readme",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@types/koa": "^2.13.10",
+    "@types/koa-bodyparser": "^4.3.11",
+    "@types/koa-logger": "^3.1.4",
+    "@types/koa-router": "^7.4.6",
+    "@types/koa-static": "^4.0.3",
+    "koa": "^2.14.2",
+    "koa-bodyparser": "^4.4.1",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^12.0.1",
+    "koa-static": "^5.0.0"
+  }
+}
