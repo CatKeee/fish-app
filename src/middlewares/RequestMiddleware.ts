@@ -11,27 +11,20 @@ const RequestMiddleware = async (ctx: Context, next: Next) => {
       message: "Unauthorized",
     };
   } else {
-    const token = ctx.request.header.authorization.split(" ")[1];
-    if (token === undefined) {
-      ctx.status = 401;
-      ctx.body = {
-        code: 401,
-        message: "Unauthorized",
-      };
-    } else {
-      try {
-        const decoded = jwt.verify(token, config.jwt.secret);
-        ctx.state.user = decoded;
-        next();
-      } catch (err) {
-        ctx.status = 401;
-        ctx.body = {
-          code: 401,
-          message: "Unauthorized",
-        };
-      }
-    }
-    next();
+    return next();
+    // const token = ctx.request.header.authorization;
+    // jwt.verify(token, config.jwt.secret, (err, decoded) => {
+    //   if (err) {
+    //     ctx.status = 401;
+    //     ctx.body = {
+    //       code: 401,
+    //       message: "Unauthorized",
+    //     };
+    //   } else {
+    //     ctx.state.user = decoded;
+    //     next();
+    //   }
+    // });
   }
 };
 
