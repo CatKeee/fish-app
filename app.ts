@@ -6,16 +6,16 @@ import config from "./src/config";
 import RequestMiddleware from "./src/middlewares/RequestMiddleware";
 import ResponseMiddleware from "./src/middlewares/ResponseMiddleware";
 import registerRoutes from "./src/routes/index";
-const { port } = config;
-const app = new Koa();
 
+const { port } = config;
+export const app = new Koa();
 registerRoutes(app);
 
 app
-  .use(RequestMiddleware)
-  .use(Logger())
-  .use(BodyParser())
   .use(Static("./public"))
+  .use(BodyParser())
+  .use(Logger())
+  .use(RequestMiddleware)
   .use(ResponseMiddleware);
 
 app.listen(port, () => {

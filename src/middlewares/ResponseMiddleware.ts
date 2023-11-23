@@ -8,7 +8,6 @@ interface Response {
 }
 
 const ResponseMiddleware = async (ctx: Context, next: Next) => {
-  await next();
   ctx.set("Content-Type", "application/json");
   const response: Response = {
     code: ctx.status,
@@ -18,6 +17,7 @@ const ResponseMiddleware = async (ctx: Context, next: Next) => {
     response.data = ctx.body;
   }
   ctx.body = response;
+  next()
 };
 
 export default ResponseMiddleware;
